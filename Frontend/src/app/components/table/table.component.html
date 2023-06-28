@@ -1,0 +1,46 @@
+<div
+    [class.rounded-border]="isSelected"
+    (mousedown)="onMouseDown($event)"
+    (mousemove)="moveTable($event)"
+    (mouseup)="onMouseUp()"
+    (click)="onMouseClick($event)"
+    class="div-container">
+    <div class="w-full">
+      <mat-card class="name-card">
+        <div class="flex items-center">
+          <div class="p-2 m-auto">{{table?.name}}</div>
+          <div 
+            (click)="onModifyTableClick()"
+            class="modify-table-icon"><mat-icon>create</mat-icon>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  <div>
+    <mat-card class="main-card">
+      <div class="flex flex-col p-3 pt-1">
+        <div class="flex flex-col">
+          <div [id]="attribute!.id" *ngFor="let attribute of table?.attributes"
+            (mouseup)="onAttributeMouseUp(attribute.id)">
+            <div class="flex justify-between items-center attribute-container ">
+              <div
+                *ngIf="isSelected"
+                class="create-connection-box"
+                (mousedown)="onConnectionCreatorMouseDown(attribute.id)">
+              </div>
+              <div class="flex justify-between w-full attribute">
+                <div>{{attribute.name}}</div>
+                <div>{{attribute.dataType}}</div> 
+              </div>
+              <div 
+                *ngIf="isSelected"
+                class="create-connection-box"
+                (mousedown)="onConnectionCreatorMouseDown(attribute.id)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

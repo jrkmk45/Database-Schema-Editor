@@ -1,0 +1,20 @@
+<div>
+  <button
+    (click)="onAddTableClick($event)"
+    #addTableButton
+    class="add-table-button" 
+    mat-raised-button 
+    color="primary">Додати таблицю
+  </button>
+
+  <div class="scheme-info">
+    <mat-card class="p-1 mt-1">
+      Схема: {{scheme?.name}}
+    </mat-card>
+  </div>
+
+  <div class="m-auto" *ngIf="isLoading">
+    Завантаження...
+  </div>
+  <app-main-canvas [scheme]="scheme"></app-main-canvas>
+</div>

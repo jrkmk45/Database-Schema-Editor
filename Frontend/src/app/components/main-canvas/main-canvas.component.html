@@ -1,0 +1,24 @@
+<div #container 
+  class="div-container" 
+  (mousedown)="onMouseDown($event)" 
+  (mousemove)="onMouseMove($event)" 
+  (mouseup)="onMouseUp()">
+  
+  <canvas #canvas class="canvas"></canvas>
+  <div *ngFor="let table of scheme?.tables; let i = index"
+    class="table"
+    [style.left.px]="table.x"
+    [style.top.px]="table.y">
+
+    <app-table
+      [table]="table"
+      [index]="i"
+      [connectionFromAttributeId]="creatingConnectionFromAttributeId"
+      (tableMoved)="onTableMoved($event)"
+      (creatingConnectionFromAttributeId)="onCreatingConnectionFromAttributeId($event)"
+      (connectionCreated)="onConnectionCreated($event)"
+      (attributeRemoved)="onAttributeRemoved($event)"
+      (tableDeleted)="onTableDeteled($event)"
+      (resetConnectionCreation)="onResetConnectionCreation()"></app-table>
+  </div>
+</div>

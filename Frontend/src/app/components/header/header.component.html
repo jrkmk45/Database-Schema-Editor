@@ -1,0 +1,26 @@
+<header>
+  <nav class="flex navbar justify-center items-center">
+    <div class="flex container items-center justify-between">
+      <div class="flex items-center justify-center gap-4">
+        <a routerLink="">
+        <div class="text-xl flex flex-row items-center gap-1">
+          <div><img width="31" src="../assets/images/database-icon.png"/></div>
+          <div>Хмарний сервіс швидкого прототипіювання</div>
+          
+          
+        </div>
+        </a>
+        <div class="text-xl"><a routerLink="">Схеми</a></div>
+        
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="navbar-item" *ngIf="isLoggedIn">
+          <app-user-info-block [user]="userService.user"></app-user-info-block>
+        </div>
+        <div class="navbar-item" *ngIf="isLoggedIn"><a mat-stroked-button (click)="logout()" href="#">Вихід</a></div>
+        <div class="navbar-item" *ngIf="!isLoggedIn"><a mat-stroked-button routerLink="login">Логін</a></div>
+        <div class="navbar-item" *ngIf="!isLoggedIn"><a mat-stroked-button routerLink="register">Реєстрація</a></div>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,41 @@
+.add-table-button {
+  z-index: 999999!important;
+  position: fixed;
+  margin: 20px;
+  margin-top: 37px;
+  width: 13vw;
+  height: 3vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1cqw;
+}
+
+.scheme-info {
+  z-index: 999999!important;
+  position: fixed;
+  font-size: large;
+  margin-left: 20px;
+}
+
+.popup-window-z-index {
+  z-index: 9999999!important;
+}
+
+@media only screen and (max-width: 1100px) {
+
+  .add-table-button {
+    width: 22vw;
+    height: 5vw;
+    font-size: 2cqw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .add-table-button {
+    width: 140px;
+    height: 30px;
+    font-size: 13px;
+  }
+}

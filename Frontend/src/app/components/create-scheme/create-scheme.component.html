@@ -1,0 +1,19 @@
+<form [formGroup]="addSchemeForm"
+    (ngSubmit)="onAddscheme()">
+  <div class="flex flex-col gap-2 w-full">
+    <mat-form-field
+     class="w-full"
+     subscriptSizing="dynamic">
+      <mat-label>Назва схеми</mat-label>
+      <input 
+      class="w-full"
+        matInput
+        formControlName="name"
+        placeholder="Назва схеми" type="text">
+    </mat-form-field>
+    <button class="zxc"
+      mat-raised-button color="primary"
+      type="submit">Створити cхему
+    </button>
+  </div>
+</form>

@@ -1,0 +1,47 @@
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
+    <div class="flex flex-col">
+      <div
+        *ngIf="userName?.hasError('required') &&
+          submitPressed ||
+          userName?.touched &&
+           userName?.hasError('required')"
+        class="error-text text-base mb-1">
+        Обов'язкове поле
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Логін</mat-label>
+        <input matInput formControlName="userName">
+      </mat-form-field>
+
+      <mat-error class="error-text text-base mb-1"
+        *ngIf="password?.hasError('required') &&
+          submitPressed ||
+           password?.touched &&
+           (password?.hasError('required') 
+           || password?.hasError('minlength'))">
+          Тут має бути мінімум 5 символів
+      </mat-error>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Пароль*</mat-label>
+        <input matInput [type]="hidePassoword ? 'password' : 'text'" formControlName="password">
+
+        <button type="button" mat-icon-button matSuffix (click)="hidePassoword = !hidePassoword" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassoword">
+          <mat-icon>{{hidePassoword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      
+      <div class="flex">
+        <button (click)="submitPressed = true" type="submit" class="w-20" mat-raised-button
+          color="primary">Увійти</button>
+        <button mat-raised-button type="button" routerLink="/register" class="ml-3">Реєстрація</button>
+      </div>
+      <div *ngIf="loginErrorMessage" class="error-text text-base mt-3">
+        {{ loginErrorMessage }}!
+      </div>
+    </div>
+  </form>
+</div>

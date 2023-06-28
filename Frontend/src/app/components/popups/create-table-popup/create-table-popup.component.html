@@ -1,0 +1,21 @@
+<div class="m-7">
+  <h1>Створити таблицю</h1>
+  <form 
+    [formGroup]="addTableForm" 
+    (ngSubmit)="createTable()">
+    <div class="flex flex-col w-full">
+      <mat-form-field>
+        <mat-label>Назва таблиці</mat-label>
+        <input 
+          formControlName="tableName" 
+          matInput 
+          placeholder="Назва таблиці">
+      </mat-form-field>
+      <button 
+        mat-raised-button color="primary"
+        type="submit">Зберегти
+      </button>
+    </div>
+  </form>
+
+</div>

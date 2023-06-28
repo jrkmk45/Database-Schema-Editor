@@ -1,0 +1,73 @@
+<div class="p-7 div-container">
+  <h1>Редагувати таблицю</h1>
+  <form 
+    [formGroup]="updateTableForm"
+    (ngSubmit)="updateTable()">
+    <div class="flex flex-col">
+    <mat-form-field>
+      <mat-label>Назва таблиці</mat-label>
+      <input
+        matInput 
+        formControlName="tableName" 
+        placeholder="Назва таблиці">
+    </mat-form-field>
+    <div formArrayName="attributesInputs">
+      <div *ngFor="let attribute of attributesInputs.controls; let i = index">
+        <div class="flex flex-row gap-2">
+          <div [formGroupName]="i" class="flex gap-3">
+            <mat-form-field>
+              <mat-label>Назва атрибуту</mat-label>
+              <input
+                matInput 
+                type="text"
+                formControlName="name"
+                placeholder="Назва атрибуту">
+            </mat-form-field>
+            <mat-form-field class="type-selection-list">
+              <mat-label>Тип</mat-label>
+              <mat-select [(value)]="attributesInputs.value[i].type" formControlName="type">
+                <mat-option *ngFor="let type of dataTypes; let i = index"
+                  [value]="i + 1">
+                  {{type}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="flex flex-row justify-center gap-1">
+            <button 
+              type="button"
+              mat-raised-button color="warn"
+              (click)="deleteAttribute(i)">Видалити
+            </button>
+            <button 
+              type="button"
+              mat-raised-button color="warn"
+              (click)="deleteAttributeConnections(i)">Видалити зв'язки
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-3 flex-col">
+      <div>
+        <button 
+          type="button"
+          mat-raised-button color="primary"
+          (click)="addAttribute()">Додати атрибут
+        </button>
+      </div>
+      <div class="flex gap-2">
+        <button 
+          mat-raised-button color="primary"
+          type="submit">Зберегти
+        </button>
+        <button 
+          type="button"
+          mat-raised-button color="warn"
+          (click)="deleteTable()">Видалити
+        </button>
+      </div>
+    </div>
+    </div>
+  </form>
+</div>

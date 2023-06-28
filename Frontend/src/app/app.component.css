@@ -1,0 +1,17 @@
+::ng-deep .mdc-notched-outline__notch {
+  border-right: none !important;
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 999998 !important;
+}
+
+.navbar {
+  top: 0;
+  height: 50px;
+  z-index: 99999999 !important;
+}
+
+.content {
+  margin-top: 50px;
+}

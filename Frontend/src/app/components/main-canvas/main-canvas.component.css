@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.div-container {
+  position: absolute;
+}
+
+.table {
+  z-index: 99999!important;
+  position: absolute;
+}
+
+.canvas {
+  z-index: 99999!important;
+  position: absolute;
+}
