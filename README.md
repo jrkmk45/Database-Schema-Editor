@@ -1,9 +1,9 @@
-# Database Scheme Editor
-## Interactive client-server app which allows to create and edit database schemes
+# Database Schema Editor
+## Interactive client-server app which allows to create and edit database schemas
 
 Project built using ASP.NET Web API and Angular, it includes functionality described below:
 - Authentication and authorization
-- Creating multiple schemes by the user
+- Creating multiple schemas by the user
 - Creating, deleting, modifying, and moving database tables
 - Creating, editing, and deleting table attributes
 - Setting attribute types
@@ -11,7 +11,7 @@ Project built using ASP.NET Web API and Angular, it includes functionality descr
 
 ## Preview
 ### Schema page
-![alt sceme-preview](PreviewImages/Scheme.png)
+![alt scema-preview](PreviewImages/Scheme.png)
 
 ### Schema list page
 ![alt schemas-list-preview](PreviewImages/SchemasList.png)
